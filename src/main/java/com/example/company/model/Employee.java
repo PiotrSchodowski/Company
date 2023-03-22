@@ -1,11 +1,7 @@
 package com.example.company.model;
-
 import lombok.*;
 import org.springframework.stereotype.Component;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,5 +18,13 @@ public class Employee {
 
     private String name;
     private String surname;
-    private String address;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sensitiveData_id", referencedColumnName = "id")
+    private SensitiveData sensitiveData;
+
 }
