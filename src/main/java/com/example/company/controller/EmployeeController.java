@@ -1,4 +1,5 @@
 package com.example.company.controller;
+import com.example.company.mapper.EmployeeDto;
 import com.example.company.model.Employee;
 import com.example.company.service.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,6 +27,11 @@ public class EmployeeController {
     @GetMapping("/employees/{id}")
     public Employee getEmployee(@Parameter(description = "id of employee to be searched")@PathVariable Long id){
         return employeeService.getEmployee(id);
+    }
+    @Operation(summary = "pobieranie pracownika DTO po id")
+    @GetMapping("/employeesDto/{id}")
+    public EmployeeDto getEmployeeDTO(@PathVariable Long id){
+        return employeeService.getEmployeeDto(id);
     }
 
     @Operation(summary = "dodaj pracownika")
