@@ -29,7 +29,7 @@ public class EmployeeController {
         return employeeService.getEmployee(id);
     }
     @Operation(summary = "pobieranie pracownika DTO po id")
-    @GetMapping("/employeesDto/{id}")
+    @GetMapping("/employeeDto/{id}")
     public EmployeeDto getEmployeeDTO(@PathVariable Long id){
         return employeeService.getEmployeeDto(id);
     }
@@ -50,4 +50,6 @@ public class EmployeeController {
     public void deleteEmployee(@PathVariable Long id){
          employeeService.deleteEmployee(id);
     }
+
+
 }
